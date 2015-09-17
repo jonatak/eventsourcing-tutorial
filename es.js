@@ -21,7 +21,7 @@ app.put('/basket/:id', function (req, res) {
     res.sendStatus(201);
 });
 
-app.post('/basket/:id/add' function (req, res) {
+app.post('/basket/:id/add', function (req, res) {
     res.sendStatus(201);
 });
 

@@ -1,0 +1,20 @@
+div
+  table( class='table table-hover table-condensed' )
+    thread
+      tr
+        th( style='width:80%' ) Product
+        th( style='width:10%' ) Price
+        th( style='width:10%' )
+      tbody
+        tr( ng-repeat='product in basket.products' )
+          td( data-th='Product')
+            h4.no-margin {{product.name}}
+          td( data-th='Price') {{product.price}}
+      tfoot
+        tr
+          td
+            button( ng-click='discardBasket()' class='btn btn-info btn-sm' ) Discard basket
+          td
+          td
+            button( ng-click='validateBasket()' class='btn btn-info btn-sm' ) Validate basket
+  

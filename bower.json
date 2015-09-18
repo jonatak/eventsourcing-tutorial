@@ -1,0 +1,26 @@
+{
+  "name": "eventsourcinng",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonatak/eventsourcing-tutorial",
+  "authors": [
+    "Jonathan Billaud <jonathan.billaud@gmail.com>"
+  ],
+  "description": "Node event sourcing project",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.6",
+    "angular-bootstrap": "~0.13.4",
+    "angular-route": "~1.4.6",
+    "bootstrap": "~3.3.5"
+  }
+}

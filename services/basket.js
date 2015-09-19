@@ -33,7 +33,7 @@ var commandHandler = function (cmd, data, callback) {
 		    return product.price
 		}).reduce(function(a, b) {return a + b;});
 		var finalPrice = totalCard + (totalCard/100*20)
-		event.ttc = finalPrice
+		event.ttc = Math.round(finalPrice)
 		callback(event);
 		flush();
 	    });
@@ -60,28 +60,26 @@ var eventHandler = {
 	case "CardDiscard":
 	    break;
 	case "ValidateBasket":
-	    client.get("bank", function (err, data) {
-		if (data == null) client.set("bank", event.ttc, redis.print)
-		else {
-		    client.set("bank", parseInt(event.ttc) + parseInt(data), redis.print)
-		}
-	    });
+	    client.incrby("bank", event.ttc, redis.print);
 	    break;
-	};
+	}
     },
-    
-    reloadState : function() {
+
+    reload:  function() {
 	client.del("basket", redis.print)
-	client.del("bank", redis.print)
+	client.set("bank", 0)
 	client.lrange("event", 0, -1, function(err, values) {
-	    for (event in values) {
+	    values.map(function(event) {
 		eventHandler.processEvent(JSON.parse(event))
-	    }
+	    });
 	});
     }
 }
 
 module.exports = {
+    reload: function() {
+	eventHandler.reload();
+    },
     process: function(cmd, data) {
 	commandHandler(cmd, data, function(event) {
 	    eventHandler.saveEvent(event);

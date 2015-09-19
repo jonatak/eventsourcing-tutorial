@@ -1,3 +1,4 @@
 div.jumbotron
   h1 Event Sourcing
-  p( ng-bind='bank' )
+  p Bank: {{ bank }}$
+  button( ng-click="reloadBank()" class='btn btn-info btn-sm' ) Reload Bank

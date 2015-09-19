@@ -38,13 +38,21 @@ productsController.controller('ProductsCtrl', ['$scope', '$http', function($scop
     $scope.validateBasket = function() {
 	$http.post('basket/validate', {}).
 	    success(function(data, status, headers, config) {
-		loadBasket();
-		loadBank();
+		loadBasket();		
 	    })
     };
 
-    $scope.basketTab = false;
+    $scope.reloadBank = function() {
+	$http.post('basket/reload', {}).
+	    success(function(date, status, heaeders, config) {
+		console.log("state reload");
+	    })
+    }
 
+    $scope.basketTab = false;
+    var timer = setInterval(function() {
+	$scope.$apply(loadBank);
+    }, 1000);
     loadBasket()
     loadBank()
 }]);

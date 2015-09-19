@@ -19,6 +19,11 @@ router.post('/discard', function (req, res) {
     res.sendStatus(200);
 });
 
+router.post('/reload', function (req, res) {
+    basket.reload();
+    res.sendStatus(200);
+});
+
 router.get('', function (req, res) {
     client.lrange("basket", 0, -1, function(err, values) {
 	var ret = new Object();

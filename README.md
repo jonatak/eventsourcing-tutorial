@@ -23,9 +23,21 @@ To start using this project you will need to install the following dependency:
 - bower
 - redis
 
+On ubuntu:
+
+`sudo apt-get install nodejs nodejs-legacy npm`
+`npm install -g bower`
+
+After installing all this components, in the project directory run:
+
+- `npm install`
+- `bower install`
+
 To lauch your project, you simply need to lauch the command:
 
 `nodejs template.js`
+
+Now you are ready.
 
 ## Project architecture
 

@@ -51,3 +51,7 @@ To know how to use redis, and what command is available, you can see the referen
 
 The library use to communicate with redis is node_redis, description of the library here:
 ([https://github.com/NodeRedis/node_redis])
+
+## Solution example
+
+To see an example of a solution, checkout 'solution/example'

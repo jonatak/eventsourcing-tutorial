@@ -1,0 +1,34 @@
+include mixins
+doctype
+html( lang="en" ng-app="ecommerce")
+  head
+    title=Welcome
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+    meta( name='description', content='EventSourcing tutorial' )
+    link(href='bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='bower_components/angular-bootstrap/ui-bootstrap-csp.css', rel='stylesheet')
+  body(style="padding-bottom:10rem;" ng-controller='ProductsCtrl')
+   .container
+   
+    +nav("Event sourcing", "dropdown_menu", "inverse")
+    
+    div( main-elem )
+    
+    div.container
+      tabset
+        tab( heading='Product' )
+          div( product-list )
+        tab( heading='Basket' active='basketTab' )
+          div( basket-list )
+          
+    script( src='bower_components/jquery/dist/jquery.min.js' )
+    script( src='bower_components/bootstrap/dist/js/bootstrap.min.js' )
+    script( src='bower_components/angular/angular.js' )
+    script( src='bower_components/angular-route/angular-route.js')
+    script( src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js' )
+    script( src='app/app.js' )
+    script( src='app/service.js')
+    script( src='app/controller.js')
+    

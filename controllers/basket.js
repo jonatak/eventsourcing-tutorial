@@ -11,8 +11,8 @@ var client = redis.createClient()
 *   "productId" : Int
 * }
 *
-* You can find the product list in products in redis
-* see http://redis.io/commands#list to know how to request it.
+* You can find the product list with 'keys product_*' in redis
+* see http://redis.io/commands to know how to request it.
 *
 * response: code 200
 */

@@ -1,37 +1,26 @@
 var express = require('express')
 var router = express.Router()
-var basket = require('../services/basket')
 var redis = require('redis')
 var client = redis.createClient()
 
 router.post('/add', function (req, res) {
-    basket.process("add", req.body.productId)
+    // implement add
     res.sendStatus(200);
 });
 
 router.post('/validate', function (req, res) {
-    basket.process("validate", req.body)
+    // implement validate
     res.sendStatus(200);
 });
 
 router.post('/discard', function (req, res) {
-    basket.process("discard", req.body)
-    res.sendStatus(200);
-});
-
-router.post('/reload', function (req, res) {
-    basket.reload();
+    // implement discard
     res.sendStatus(200);
 });
 
 router.get('', function (req, res) {
-    client.lrange("basket", 0, -1, function(err, values) {
-	var ret = new Object();
-	ret.products = values.map(function(value) {
-	    return JSON.parse(value);
-	});
-	res.send(JSON.stringify(ret))
-    });
+    // implement basket list
+    res.sendStatus(200)
 });
 
 module.exports = router

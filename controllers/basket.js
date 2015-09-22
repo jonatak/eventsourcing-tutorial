@@ -22,7 +22,8 @@ router.post('/add', function (req, res) {
 });
 
 /*
-* Request validate:
+* Request validate:  show calculate the total of the card + TVA (lets say 19.6),
+* add the result in bank, and then empty basket.
 *
 * request: {}
 *
